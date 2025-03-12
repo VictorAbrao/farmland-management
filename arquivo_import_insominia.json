@@ -1,0 +1,237 @@
+{
+    "_type": "export",
+    "__export_format": 4,
+    "__export_date": "2025-03-12T00:00:00.000Z",
+    "__export_source": "insomnia.desktop.app:v2023.1.0",
+    "resources": [
+      {
+        "_id": "wrk_farm_001",
+        "name": "Farmland Management",
+        "description": "",
+        "_type": "workspace"
+      },
+      {
+        "_id": "fld_producers",
+        "parentId": "wrk_farm_001",
+        "name": "Producers",
+        "_type": "request_group"
+      },
+      {
+        "_id": "req_create_producer",
+        "parentId": "fld_producers",
+        "_type": "request",
+        "name": "POST /producers (Exemplo 1)",
+        "method": "POST",
+        "url": "http://localhost:3000/producers",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mimeType": "application/json",
+          "text": "{\n  \"cpfCnpj\": \"11122233344\",\n  \"name\": \"Produtor Exemplo\"\n}"
+        }
+      },
+      {
+        "_id": "req_create_producer2",
+        "parentId": "fld_producers",
+        "_type": "request",
+        "name": "POST /producers (Exemplo 2)",
+        "method": "POST",
+        "url": "http://localhost:3000/producers",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mimeType": "application/json",
+          "text": "{\n  \"cpfCnpj\": \"55566677788\",\n  \"name\": \"Outro Produtor\"\n}"
+        }
+      },
+      {
+        "_id": "req_get_producers",
+        "parentId": "fld_producers",
+        "_type": "request",
+        "name": "GET /producers",
+        "method": "GET",
+        "url": "http://localhost:3000/producers"
+      },
+      {
+        "_id": "req_get_producer_by_id",
+        "parentId": "fld_producers",
+        "_type": "request",
+        "name": "GET /producers/:id",
+        "method": "GET",
+        "url": "http://localhost:3000/producers/REPLACE_WITH_ID"
+      },
+      {
+        "_id": "req_patch_producer",
+        "parentId": "fld_producers",
+        "_type": "request",
+        "name": "PATCH /producers/:id",
+        "method": "PATCH",
+        "url": "http://localhost:3000/producers/REPLACE_WITH_ID",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mimeType": "application/json",
+          "text": "{\n  \"name\": \"Produtor Atualizado\"\n}"
+        }
+      },
+      {
+        "_id": "req_delete_producer",
+        "parentId": "fld_producers",
+        "_type": "request",
+        "name": "DELETE /producers/:id",
+        "method": "DELETE",
+        "url": "http://localhost:3000/producers/REPLACE_WITH_ID"
+      },
+      {
+        "_id": "fld_properties",
+        "parentId": "wrk_farm_001",
+        "name": "Properties",
+        "_type": "request_group"
+      },
+      {
+        "_id": "req_create_property",
+        "parentId": "fld_properties",
+        "_type": "request",
+        "name": "POST /properties (Exemplo 1)",
+        "method": "POST",
+        "url": "http://localhost:3000/properties",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mimeType": "application/json",
+          "text": "{\n  \"farmName\": \"Fazenda Santo Antônio\",\n  \"city\": \"Itu\",\n  \"state\": \"SP\",\n  \"totalArea\": 100.5,\n  \"arableArea\": 80,\n  \"vegetationArea\": 20.5,\n  \"harvests\": [\"Safra 2021\"],\n  \"crops\": [\"Soja\"],\n  \"producer\": \"REPLACE_WITH_PRODUCER_ID\"\n}"
+        }
+      },
+      {
+        "_id": "req_create_property2",
+        "parentId": "fld_properties",
+        "_type": "request",
+        "name": "POST /properties (Exemplo 2)",
+        "method": "POST",
+        "url": "http://localhost:3000/properties",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mimeType": "application/json",
+          "text": "{\n  \"farmName\": \"Fazenda Boa Vista\",\n  \"city\": \"Londrina\",\n  \"state\": \"PR\",\n  \"totalArea\": 200,\n  \"arableArea\": 120,\n  \"vegetationArea\": 80,\n  \"harvests\": [\"Safra 2022\", \"Safra 2023\"],\n  \"crops\": [\"Milho\", \"Soja\"],\n  \"producer\": \"REPLACE_WITH_PRODUCER_ID\"\n}"
+        }
+      },
+      {
+        "_id": "req_get_properties",
+        "parentId": "fld_properties",
+        "_type": "request",
+        "name": "GET /properties",
+        "method": "GET",
+        "url": "http://localhost:3000/properties"
+      },
+      {
+        "_id": "req_get_property_by_id",
+        "parentId": "fld_properties",
+        "_type": "request",
+        "name": "GET /properties/:id",
+        "method": "GET",
+        "url": "http://localhost:3000/properties/REPLACE_WITH_ID"
+      },
+      {
+        "_id": "req_patch_property",
+        "parentId": "fld_properties",
+        "_type": "request",
+        "name": "PATCH /properties/:id",
+        "method": "PATCH",
+        "url": "http://localhost:3000/properties/REPLACE_WITH_ID",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mimeType": "application/json",
+          "text": "{\n  \"farmName\": \"Fazenda Alterada\"\n}"
+        }
+      },
+      {
+        "_id": "req_delete_property",
+        "parentId": "fld_properties",
+        "_type": "request",
+        "name": "DELETE /properties/:id",
+        "method": "DELETE",
+        "url": "http://localhost:3000/properties/REPLACE_WITH_ID"
+      },
+      {
+        "_id": "fld_dashboards",
+        "parentId": "wrk_farm_001",
+        "name": "Dashboards",
+        "_type": "request_group"
+      },
+      {
+        "_id": "req_dash_summary",
+        "parentId": "fld_dashboards",
+        "_type": "request",
+        "name": "GET /dashboards/summary",
+        "method": "GET",
+        "url": "http://localhost:3000/dashboards/summary"
+      },
+      {
+        "_id": "req_dash_bystate",
+        "parentId": "fld_dashboards",
+        "_type": "request",
+        "name": "GET /dashboards/by-state",
+        "method": "GET",
+        "url": "http://localhost:3000/dashboards/by-state"
+      },
+      {
+        "_id": "req_dash_bystate_query",
+        "parentId": "fld_dashboards",
+        "_type": "request",
+        "name": "GET /dashboards/by-state?state=SP",
+        "method": "GET",
+        "url": "http://localhost:3000/dashboards/by-state?state=SP"
+      },
+      {
+        "_id": "req_dash_byculture",
+        "parentId": "fld_dashboards",
+        "_type": "request",
+        "name": "GET /dashboards/by-culture",
+        "method": "GET",
+        "url": "http://localhost:3000/dashboards/by-culture"
+      },
+      {
+        "_id": "req_dash_byculture_query",
+        "parentId": "fld_dashboards",
+        "_type": "request",
+        "name": "GET /dashboards/by-culture?culture=Milho",
+        "method": "GET",
+        "url": "http://localhost:3000/dashboards/by-culture?culture=Milho"
+      },
+      {
+        "_id": "req_dash_landuse",
+        "parentId": "fld_dashboards",
+        "_type": "request",
+        "name": "GET /dashboards/land-use",
+        "method": "GET",
+        "url": "http://localhost:3000/dashboards/land-use"
+      }
+    ]
+  }
+  
