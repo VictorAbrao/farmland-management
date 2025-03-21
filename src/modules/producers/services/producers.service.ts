@@ -1,11 +1,25 @@
-import { Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  ConflictException,
+  Injectable,
+} from '@nestjs/common';
+import { validateCPForCNPJ } from '../../utils/validate-cpf-cnpj';
 import { ProducersRepository } from '../repos/producers.repository';
 
 @Injectable()
 export class ProducersService {
   constructor(private readonly producersRepository: ProducersRepository) {}
 
-  create(data: any) {
+  async create(data: any) {
+    if (!validateCPForCNPJ(data.cpfCnpj)) {
+      throw new BadRequestException('CPF/CNPJ inválido');
+    }
+    const existing = await this.producersRepository.findProducerByCpfCnpj(
+      data.cpfCnpj,
+    );
+    if (existing) {
+      throw new ConflictException('CPF/CNPJ já cadastrado');
+    }
     return this.producersRepository.createProducer(data);
   }
 
@@ -17,7 +31,18 @@ export class ProducersService {
     return this.producersRepository.findProducerById(id);
   }
 
-  update(id: string, data: any) {
+  async update(id: string, data: any) {
+    if (data.cpfCnpj && !validateCPForCNPJ(data.cpfCnpj)) {
+      throw new BadRequestException('CPF/CNPJ inválido');
+    }
+    if (data.cpfCnpj) {
+      const existing = await this.producersRepository.findProducerByCpfCnpj(
+        data.cpfCnpj,
+      );
+      if (existing && existing.id !== id) {
+        throw new ConflictException('CPF/CNPJ já cadastrado');
+      }
+    }
     return this.producersRepository.updateProducer(id, data);
   }
 
